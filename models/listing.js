@@ -1,38 +1,3 @@
-// const mongoose=require("mongoose");
-// const Schema=mongoose.Schema;
-
-// const listingSchema= new Schema({
-//     title:{
-//      type:String,
-//      required:true
-//     },
-//     description:String,
-//     image:{
-//         type:String,
-//         // filename: { type: String, required: true },
-//         // url: { type: String, required: true }
-    
-//         // filename: String,
-//         // default: 
-//         //     "https://www.pexels.com/photo/a-close-up-of-pink-roses-in-a-garden-20627179/",
-//         // set: (v)=> 
-//         // v === "" 
-//         // ? "https://www.pexels.com/photo/a-close-up-of-pink-roses-in-a-garden-20627179/"
-//         //  : v,
-//        },
-//     price:Number,
-//     location:String,
-//     country:String
-// });
-
-// const Listing=mongoose.model("Listing", listingSchema);
-
-// module.exports=Listing;
-
-
-
-
-
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
