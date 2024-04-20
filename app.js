@@ -37,7 +37,7 @@ app.get("/listings",async(req,res)=>{
   res.render("listings/index.ejs", {allListings});
 })
 
-//NEW ROUTE
+//New ROUTE
 app.get("/listings/new",(req,res)=>{
   res.render("listings/new.ejs")
 });
