@@ -1,31 +1,39 @@
-    <% layout("/layouts/boilerplate") %>
-    <h3>All Listings</h3>
-    <!-- <form method="GET" action="/listings/new">
-        <button>Create new Listing</button>
-    </form> -->
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-        <% for(let listing of allListings){%>
-            <a href="/listings/<%=listing._id%>" class="listing-links">
-                <div class="card col" >
-                    <img src="<%= listing.image %>" class="card-img-top" alt="Listing image" style="height: 20rem";/>
-                    <div class="card-img-overlay"></div>
-                    <div class="card-body">
-                      <p class="card-text">
-                        <b><%=listing.title %></b> <br>
-                        <%= listing.price.toLocaleString("en-IN")  %> / night
-                    </p>
-                    </div>
-                  </div>
-                  <% }%>
-            </a>
-            
+<% layout('/layouts/boilerplate') -%>
+  <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
     </div>
-   
-    <!-- <ul>
-    <% for(let listing of allListings){%>
-            <li> <a href="/listings/<%=listing._id%>"> <%=listing.title %></a></li>
-            
-   <% }%>
-</ul> -->
-</body>
+  </div>
 
+   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListing){ %>
+      <a href="/listings/<%= listing._id %>" class="listing_link">
+        <div class="card col listing-card">
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="listnig_image" style="height: 20rem;">
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+              <b> <%= listing.title %> <br></b>
+              &#8377;  <%= listing.price.toLocaleString("en-IN") %>/ night
+              <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
+          </p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+    </div>
+
+    <script>
+      let taxSwitch=document.getElementById("flexSwitchCheckDefault");
+      taxSwitch.addEventListener("click",()=>{
+       let taxInfo=document.getElementsByClassName('tax-info');
+     for(info of taxInfo){
+      if(info.style.display!="inline"){
+      info.style.display="inline"
+      }else{
+        info.style.display="none"
+      }
+     }
+      })
+    </script>
